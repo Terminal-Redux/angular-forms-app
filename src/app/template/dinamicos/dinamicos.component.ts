@@ -19,6 +19,8 @@ interface Favorito {
 })
 export class DinamicosComponent {
 
+  nuevoJuego: string = '';
+
   persona: Persona = {
     nombre: 'Amilcar',
     favoritos: [
@@ -31,6 +33,16 @@ export class DinamicosComponent {
         nombre: 'Death Stranding'
       },
     ]
+  }
+
+  agregarJuego() {
+    const nuevoFavorito: Favorito = {
+      id: this.persona.favoritos.length + 1,
+      nombre: this.nuevoJuego
+    };
+
+    this.persona.favoritos.push({...nuevoFavorito});
+    this.nuevoJuego = '';
   }
 
   guardar() {
